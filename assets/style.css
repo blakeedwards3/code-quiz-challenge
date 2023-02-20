@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: darkgrey;
+    background-color: rgb(126, 126, 126);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,40 +13,45 @@ body {
 }
 
 .quiz-container {
-    background-color: lightgray;
+    background-color: rgb(78, 79, 94);
+    width: 700px;
     border-radius: 10px;
-    box-shadow: 0 0 10px 2px rgba(rgb(100, 100, 100, 0.1));
-    width: 600px;
 }
 
 .quiz-header {
-
+    padding: 30px;
 }
 
 h2 {
-
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
 }
 
 ul {
-
+    padding: 0;
 }
 
 ul li {
-
+    font-size: 20px;
 }
 
-ul li div {
-
+ul li label {
+    cursor: pointer;
 }
 
 button {
-
+    background-color: green;
+    color: white;
+    display: block;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    font-size: 20px;
+    padding: 7px;
+    width: 100%;
+    cursor: pointer;
 }
 
 button:hover {
-
-}
-
-button:focus {
-
+    background-color: darkgreen;
 }
