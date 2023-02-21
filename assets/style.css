@@ -72,3 +72,11 @@ startBtn {
 startBtn:hover {
     background-color: darkgreen;
 }
+
+.timer-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    font-weight: bold;
+}

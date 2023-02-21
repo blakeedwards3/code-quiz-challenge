@@ -1,5 +1,6 @@
-const startButton = document.getElementById('start');
-const quizContainer = document.getElementById('quiz');
+const startButton = document.getElementById("start");
+const quizContainer = document.getElementById("quiz");
+
 
 quizContainer.style.display = 'none';
 
@@ -8,6 +9,20 @@ startButton.addEventListener('click', startQuiz);
 function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
+
+    const timerElement = document.getElementById("timer");
+    const timeLimit = 60;
+    timerElement.textContent = timeLimit + " seconds";
+
+    let timeLeft = timeLimit;
+    const timerInterval = setInterval(() => {
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerInterval);
+      } else {
+        timerElement.textContent = timeLeft + ' seconds';
+      }
+    }, 1000);
 }
 
 const quizData = [
