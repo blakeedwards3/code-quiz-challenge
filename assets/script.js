@@ -1,3 +1,15 @@
+const startButton = document.getElementById('start');
+const quizContainer = document.getElementById('quiz');
+
+quizContainer.style.display = 'none';
+
+startButton.addEventListener('click', startQuiz);
+
+function startQuiz() {
+    startButton.style.display = "none";
+    quizContainer.style.display = "block";
+}
+
 const quizData = [
     {
         question: "What does HTML stand for?",
@@ -34,8 +46,8 @@ const quizData = [
 ];
 
 const quiz = document.getElementById("quiz")
-const quizAnswers = document.querySelectorAll(".answer")
 const questionEl = document.getElementById("question")
+const quizAnswers = document.querySelectorAll(".answer")
 const a_text = document.getElementById("a-text")
 const b_text = document.getElementById("b-text")
 const c_text = document.getElementById("c-text")

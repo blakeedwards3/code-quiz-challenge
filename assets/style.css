@@ -55,3 +55,20 @@ button {
 button:hover {
     background-color: darkgreen;
 }
+
+startBtn {
+    background-color: green;
+    color: white;
+    display: block;
+    border: none;
+    border-radius: 10px;
+    font-size: 35px;
+    text-align: center;
+    padding: 7px;
+    width: 30%;
+    cursor: pointer;
+}
+
+startBtn:hover {
+    background-color: darkgreen;
+}
