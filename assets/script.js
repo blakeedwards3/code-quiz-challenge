@@ -1,24 +1,28 @@
 const startButton = document.getElementById("start");
-const quizContainer = document.getElementById("quiz");
 
+const quizContainer = document.getElementById("quiz");
 
 quizContainer.style.display = 'none';
 
 startButton.addEventListener('click', startQuiz);
+
+let timerInterval; 
 
 function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
 
     const timerElement = document.getElementById("timer");
-    const timeLimit = 60;
+    const timeLimit = 75;
     timerElement.textContent = timeLimit + " seconds";
 
     let timeLeft = timeLimit;
-    const timerInterval = setInterval(() => {
+    timerInterval = setInterval(() => {
       timeLeft--;
-      if (timeLeft < 0) {
+      if (timeLeft <= 0) {
         clearInterval(timerInterval);
+        timeLeft = 0;
+        timerElement.textContent = "0";
       } else {
         timerElement.textContent = timeLeft + ' seconds';
       }
@@ -76,18 +80,21 @@ loadQuiz()
 
 function loadQuiz() {
     deselectAnswers()
-    const currentQuizData = quizData[currentQuiz]
-    questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
+    const currentQuizData = quizData[currentQuiz];
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+    if (currentQuiz === quizData.length - 1) {
+        clearInterval(timerInterval);
+    }
 }
 function deselectAnswers() {
     quizAnswers.forEach(answerEl => answerEl.checked = false)
 }
 function getSelected() {
-    let answer
+    let answer = undefined;
     quizAnswers.forEach(answerEl => {
         if(answerEl.checked) {
             answer = answerEl.id
@@ -97,12 +104,12 @@ function getSelected() {
 }
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
+    if (answer) {
+       if (answer === quizData[currentQuiz].correct) {
            score++
-       }
+       } 
        currentQuiz++
-       if(currentQuiz < quizData.length) {
+       if (currentQuiz < quizData.length) {
            loadQuiz()
        } else {
            quiz.innerHTML = `

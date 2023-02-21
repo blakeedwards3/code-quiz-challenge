@@ -32,6 +32,19 @@ ul {
     padding: 0;
 }
 
+.answer-container {
+    background-color: rgb(126, 126, 126);
+    display: block;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.answer-container:hover {
+    background-color: lightgreen;
+}
+
 ul li {
     font-size: 20px;
 }
