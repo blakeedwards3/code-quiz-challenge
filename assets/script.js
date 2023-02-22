@@ -6,17 +6,18 @@ quizContainer.style.display = 'none';
 
 let timerInterval; 
 
-startButton.addEventListener('click', startQuiz);
+let timerElement = null;
 
+startButton.addEventListener('click', startQuiz);
+let timeLeft = 75;
 function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
 
     const timerElement = document.getElementById("timer");
-    const timeLimit = 75;
-    timerElement.textContent = timeLimit + " seconds";
 
-    let timeLeft = timeLimit;
+    timerElement.textContent = timeLeft + " seconds";
+
     timerInterval = setInterval(() => {
       timeLeft--;
       if (timeLeft <= 0) {
@@ -99,10 +100,10 @@ function getSelected() {
     let answer = undefined;
     quizAnswers.forEach(answerEl => {
         if(answerEl.checked) {
-            answer = answerEl.id
+            answer = answerEl.id;
         }
     })
-    return answer
+    return answer;
 }
 
 submitBtn.addEventListener('click', () => {
@@ -119,12 +120,15 @@ submitBtn.addEventListener('click', () => {
     }
        currentQuiz++
        if (currentQuiz < quizData.length) {
-           loadQuiz()
+           loadQuiz();
        } else {
+            clearInterval(timerInterval);
            quiz.innerHTML = `
            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
            <button onclick="location.reload()">Reload</button>
            `
        }
-    } 
+    } else {
+   
+    }
 })
