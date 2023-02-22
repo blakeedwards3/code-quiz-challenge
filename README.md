@@ -6,8 +6,8 @@ I was given the task of building a quiz webpage to test the user's JavaScript kn
 
 ## Website Links
 
-- Deployed URL: 
-- GitHub Repository: 
+- Deployed URL: https://blakeedwards3.github.io/code-quiz-challenge/
+- GitHub Repository: https://github.com/blakeedwards3/code-quiz-challenge
 
 ## Website Screenshot
 
