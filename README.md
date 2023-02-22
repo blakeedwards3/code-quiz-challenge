@@ -11,7 +11,7 @@ I was given the task of building a quiz webpage to test the user's JavaScript kn
 
 ## Website Screenshot
 
-
+![Alt text](assets/blakeedwards3.github.io_code-quiz-challenge_.png)
 
 ## Credits
 
