@@ -4,9 +4,9 @@ const quizContainer = document.getElementById("quiz");
 
 quizContainer.style.display = 'none';
 
-startButton.addEventListener('click', startQuiz);
-
 let timerInterval; 
+
+startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
     startButton.style.display = "none";
@@ -86,10 +86,12 @@ function loadQuiz() {
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
     d_text.innerText = currentQuizData.d;
-    if (currentQuiz === quizData.length - 1) {
+    if (currentQuiz === quizData.length) {
         clearInterval(timerInterval);
+        timerElement.textContent = "0 seconds";
     }
 }
+
 function deselectAnswers() {
     quizAnswers.forEach(answerEl => answerEl.checked = false)
 }
@@ -102,12 +104,19 @@ function getSelected() {
     })
     return answer
 }
+
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if (answer) {
        if (answer === quizData[currentQuiz].correct) {
            score++
-       } 
+       }  else {
+        timeLeft -= 10;
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        }
+        timerElement.textContent = timeLeft + ' seconds';
+    }
        currentQuiz++
        if (currentQuiz < quizData.length) {
            loadQuiz()
@@ -117,5 +126,5 @@ submitBtn.addEventListener('click', () => {
            <button onclick="location.reload()">Reload</button>
            `
        }
-    }
+    } 
 })
